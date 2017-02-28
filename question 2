@@ -1,0 +1,217 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+
+using namespace std;
+int main()
+{  
+	 char n,ch,ch1,ch2;
+	 
+/*	 string  value;
+	ofstream f1;
+
+	f1.open("abc.txt");
+	
+	cout<<"writing to a file  ";
+	getline(cin,value);
+	
+	f1<<value<<endl;
+	
+	//f1.close();
+*/	
+	fstream f2;
+	f2.open("infile.txt",ios::in);
+	
+	cout<<"read  ";
+	
+	ofstream x,y;
+	x.open("result.txt");
+	y.open("cleaned.txt");
+	cout<<"\n\t Which line do you want (f,m,r,s)::";
+	cin>>n;
+	
+	
+	if(n=='f')
+	{
+	   while(f2)
+	   { 
+		   f2.get(ch);
+		   if(ch=='"')
+		   {
+			  f2.get(ch1);
+		      if(ch1=='f')
+		      {
+		         f2.get(ch2);
+		         if(ch2=='"')
+		         {
+		           // cout<<"yes"<<endl;
+			       x<<ch;  
+			       x<<ch1;
+			       x<<ch2;
+			          f2.get(ch);
+                      x<<ch; 
+                      f2.get(ch);
+                      x<<ch; 
+			         for( ; ; )
+			        {
+                      f2.get(ch);
+                      x<<ch;   
+                      if(ch==',')
+                      {
+			 x<<endl;
+			 y<<endl;
+			 break;
+			}	
+			  y<<ch;		  
+			}
+			       cout<<endl;
+			     }
+	           }
+	        }
+		}
+     }else if(n=='m')
+       {
+	   while(f2)
+	   { 
+		   f2.get(ch);
+		   if(ch=='"')
+		   {
+			  f2.get(ch1);
+		      if(ch1=='m')
+		      {
+		         f2.get(ch2);
+		         if(ch2=='"')
+		         {
+		           // cout<<"yes"<<endl;
+			       x<<ch;  
+			       x<<ch1;
+			       x<<ch2;
+			          f2.get(ch);
+                      x<<ch; 
+                      f2.get(ch);
+                      x<<ch; 
+			         for( ; ; )
+			        {
+                      f2.get(ch);
+                      x<<ch;   
+                      if(ch==',')
+                      {
+			x<<endl;
+			 y<<endl;
+			  break;
+			 }		
+			     y<<ch;	   
+			    }
+		 }
+	         }
+	        }
+		}
+     }else if(n=='r')
+        {
+	   while(f2)
+	   { 
+		   f2.get(ch);
+		   if(ch=='"')
+		   {
+			  f2.get(ch1);
+		      if(ch1=='r')
+		      {
+		         f2.get(ch2);
+		         if(ch2=='"')
+		         {
+		           // cout<<"yes"<<endl;
+			       x<<ch;  
+			       x<<ch1;
+			       x<<ch2;
+			          f2.get(ch);
+                      x<<ch; 
+                      f2.get(ch);
+                      x<<ch; 
+			         for( ; ; )
+			        {
+                      f2.get(ch);
+                      x<<ch;   
+                      if(ch==',')
+                      {
+			 x<<endl;
+			 y<<endl;
+				  break;
+					  }			 
+			  y<<ch;  
+			        }
+			      
+			     }
+	           }
+	        }
+		}
+     }else if(n=='s')
+        {
+	   while(f2)
+	   { 
+		   f2.get(ch);
+		   if(ch=='"')
+		   {
+			  f2.get(ch1);
+		      if(ch1=='s')
+		      {
+		         f2.get(ch2);
+		         if(ch2=='"')
+		         {
+		           // cout<<"yes"<<endl;
+			       x<<ch;  
+			       x<<ch1;
+			       x<<ch2;
+			       f2.get(ch);
+			       x<<ch;
+			       f2.get(ch);
+			       x<<ch;
+			       f2.get(ch);
+			       x<<ch; 
+ 				y<<ch;
+			         for( ; ; )
+			        {
+                      f2.get(ch);
+                      x<<ch;  
+			y<<ch;   
+                      if(ch=='"')
+                      {
+			 x<<endl;
+			y<<endl;
+			 break;
+		}	
+		 }	       
+	         }
+	         }
+	        }
+		}
+    	        }
+    y.close();
+    fstream l;
+	l.open("cleaned.txt",ios::in|ios::out);
+    l.clear();
+   l.seekg(0, ios::beg);
+   string abc,efg;
+   cout<<"\n\t Enter your prefered language name::";
+   cin>>abc;
+   
+   ofstream q;
+	q.open("final.bat");
+     
+   
+     while(getline(l,efg))
+     {
+		  q<<abc;
+		  q<<efg<<endl;
+		  
+	 }	   
+    
+    
+    
+    // y.close();
+     q.close();
+     
+
+	x.close();
+	f2.close();
+ return 0;
+ }
